@@ -11,7 +11,7 @@ const userSchema = new Schema({
         trime: true,
         index: true
     },
-    emial: {
+    email: {
         type: String,
         required: true,
         unique: true,

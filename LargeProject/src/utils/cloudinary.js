@@ -23,4 +23,7 @@ const uploadInCloudinary = async (localFilePath) => {
         fs.unlinkSync(localFilePath) //! when file is not uploaded of failed to upload then
         return null;
     }
+    
 }
+
+export { uploadInCloudinary }
