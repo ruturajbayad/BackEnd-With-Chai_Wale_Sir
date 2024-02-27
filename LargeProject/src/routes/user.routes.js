@@ -1,8 +1,19 @@
 import { Router } from "express";
-import { changeCurrentPassword, getUserChannelProfile, getWatchHistory, loginUser, logoutUser, refreshAccessToken, registerUser, updateAvatar, updateCoverIamge, updateUserDetails } from "../controllers/user.controller.js";
+import { 
+    changeCurrentPassword, 
+    getCurrentUser, 
+    getUserChannelProfile, 
+    getWatchHistory, 
+    loginUser, 
+    logoutUser, 
+    refreshAccessToken, 
+    registerUser, 
+    updateAvatar, 
+    updateCoverIamge, 
+    updateUserDetails 
+} from "../controllers/user.controller.js";
 import { upload } from "../middlewares/multer.middleware.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js"
-import { verify } from "jsonwebtoken";
 
 const router = Router();
 
@@ -33,5 +44,6 @@ router.route('/update-coverimage').patch(verifyJWT, upload.single("coverimage"),
 
 router.route('/c/:username').get(verifyJWT, getUserChannelProfile)
 router.route('/history').get(verifyJWT, getWatchHistory)
+router.route('/get-current-user').get(verifyJWT, getCurrentUser);
 
 export default router
